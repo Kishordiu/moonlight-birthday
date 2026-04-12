@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Instrument Serif";
+    --font-body: "General Sans";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.75rem;
+
+    /* Night sky palette - dark mode only */
+    --background: 0.08 0.02 280;
+    --foreground: 0.97 0.01 260;
+    --card: 0.12 0.03 275;
+    --card-foreground: 0.96 0.01 260;
+    --popover: 0.15 0.04 278;
+    --popover-foreground: 0.96 0.01 260;
+
+    /* Rose & Lavender accents */
+    --primary: 0.8 0.16 340;
+    --primary-foreground: 0.08 0.02 280;
+
+    /* Pale gold & cream highlights */
+    --secondary: 0.75 0.1 80;
+    --secondary-foreground: 0.08 0.02 280;
+    --muted: 0.2 0.02 280;
+    --muted-foreground: 0.65 0.02 260;
+
+    /* Lavender accent */
+    --accent: 0.82 0.12 300;
+    --accent-foreground: 0.08 0.02 280;
+
+    /* Warm white/cream for destructive */
+    --destructive: 0.97 0.01 260;
+    --destructive-foreground: 0.08 0.02 280;
+
+    /* Subtle purple-tinted borders */
+    --border: 0.2 0.03 280;
+    --input: 0.15 0.03 280;
+    --ring: 0.8 0.16 340;
+
+    /* Chart colors - rose, lavender, gold, cream, purple */
+    --chart-1: 0.8 0.16 340;
+    --chart-2: 0.82 0.12 300;
+    --chart-3: 0.75 0.1 80;
+    --chart-4: 0.97 0.01 260;
+    --chart-5: 0.3 0.05 280;
+
+    /* Sidebar dark purple */
+    --sidebar: 0.12 0.03 275;
+    --sidebar-foreground: 0.96 0.01 260;
+    --sidebar-primary: 0.8 0.16 340;
+    --sidebar-primary-foreground: 0.08 0.02 280;
+    --sidebar-accent: 0.82 0.12 300;
+    --sidebar-accent-foreground: 0.08 0.02 280;
+    --sidebar-border: 0.2 0.03 280;
+    --sidebar-ring: 0.8 0.16 340;
+
+    /* Motion tokens */
+    --duration-slow: 800ms;
+    --duration-medium: 500ms;
+    --duration-fast: 200ms;
+    --easing-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Glow gradients */
+    --gradient-rose: linear-gradient(
+      135deg,
+      oklch(0.8 0.16 340),
+      oklch(0.97 0.01 260)
+    );
+    --gradient-lavender: linear-gradient(
+      135deg,
+      oklch(0.82 0.12 300),
+      oklch(0.75 0.1 80)
+    );
+    --gradient-sky: linear-gradient(
+      180deg,
+      oklch(0.08 0.02 280),
+      oklch(0.15 0.04 278)
+    );
+  }
+
+  .dark {
+    /* Dark mode - same as root for this design */
+    --background: 0.08 0.02 280;
+    --foreground: 0.97 0.01 260;
+    --card: 0.12 0.03 275;
+    --card-foreground: 0.96 0.01 260;
+    --popover: 0.15 0.04 278;
+    --popover-foreground: 0.96 0.01 260;
+
+    --primary: 0.8 0.16 340;
+    --primary-foreground: 0.08 0.02 280;
+
+    --secondary: 0.75 0.1 80;
+    --secondary-foreground: 0.08 0.02 280;
+    --muted: 0.2 0.02 280;
+    --muted-foreground: 0.65 0.02 260;
+
+    --accent: 0.82 0.12 300;
+    --accent-foreground: 0.08 0.02 280;
+
+    --destructive: 0.97 0.01 260;
+    --destructive-foreground: 0.08 0.02 280;
+
+    --border: 0.2 0.03 280;
+    --input: 0.15 0.03 280;
+    --ring: 0.8 0.16 340;
+
+    --chart-1: 0.8 0.16 340;
+    --chart-2: 0.82 0.12 300;
+    --chart-3: 0.75 0.1 80;
+    --chart-4: 0.97 0.01 260;
+    --chart-5: 0.3 0.05 280;
+
+    --sidebar: 0.12 0.03 275;
+    --sidebar-foreground: 0.96 0.01 260;
+    --sidebar-primary: 0.8 0.16 340;
+    --sidebar-primary-foreground: 0.08 0.02 280;
+    --sidebar-accent: 0.82 0.12 300;
+    --sidebar-accent-foreground: 0.08 0.02 280;
+    --sidebar-border: 0.2 0.03 280;
+    --sidebar-ring: 0.8 0.16 340;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-slow {
+    transition: all var(--duration-slow) var(--easing-out);
+  }
+
+  .transition-medium {
+    transition: all var(--duration-medium) var(--easing-out);
+  }
+
+  .transition-fast {
+    transition: all var(--duration-fast) var(--easing-out);
+  }
+
+  .glow-rose {
+    box-shadow: 0 0 20px 0 oklch(0.8 0.16 340 / 0.4), 0 0 40px 0
+      oklch(0.8 0.16 340 / 0.2);
+  }
+
+  .glow-lavender {
+    box-shadow: 0 0 20px 0 oklch(0.82 0.12 300 / 0.4), 0 0 40px 0
+      oklch(0.82 0.12 300 / 0.2);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px 0 oklch(0.75 0.1 80 / 0.3), 0 0 40px 0
+      oklch(0.75 0.1 80 / 0.15);
+  }
+
+  .glow-cream {
+    box-shadow: 0 0 30px 0 oklch(0.97 0.01 260 / 0.4), 0 0 60px 0
+      oklch(0.97 0.01 260 / 0.2);
+  }
+
+  .glass {
+    background: oklch(0.12 0.03 275 / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.2 0.03 280 / 0.4);
+  }
+
+  .card-elevated {
+    @apply glass rounded-lg p-6 transition-slow;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px oklch(0.97 0.01 260 / 0.3);
+  }
+}
+
+/* ─── Custom keyframes used by inline animation strings ─── */
+
+@keyframes stardust {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(0px);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) translateX(var(--sway, 20px));
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(-10%) translateY(0px);
+  }
+  100% {
+    transform: translateX(130vw) translateY(-8px);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(0px) scale(0.8);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80vh) translateX(var(--sway, 20px)) scale(1.1);
+  }
+}
+
+@keyframes waveBar {
+  0%,
+  100% {
+    transform: scaleY(0.6);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--tx, 40px)),
+        calc(-50% + var(--ty, -60px))
+      )
+      scale(0.3);
+  }
+}
