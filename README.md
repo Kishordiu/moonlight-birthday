@@ -1,5 +1,7 @@
 ![Moonlight Birthday — bespoke brushed-metal project artwork](./assets/readme-metal-hero.svg)
 
+# Moonlight Birthday
+
 An interactive, moonlit birthday web experiment focused on atmosphere, motion, typography and a memorable single-page experience.
 
 ## Focus
